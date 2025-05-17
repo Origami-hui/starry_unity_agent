@@ -39,15 +39,19 @@
 ```bash
 git clone https://github.com/Origami-hui/starry_unity_agent.git
 ```
-2. 申请API密钥 ：
+2. 申请API密钥：
     - 对话大模型：[Open Router](https://openrouter.ai/)/[Silicon Flow](https://cloud.siliconflow.cn/)
     - 情绪识别（可选）：[Baidu Cloud](https://console.bce.baidu.com/ai-engine/nlp/resource?_=1747500787133&apiId=32)
-    - 本地配置语音生成模型（可选）：[GPT-SoVITS](https://)（下载好直接运行主目录的`start_tts_api.bat`文件即可）
-2. 在Unity中打开项目
-3. 在场景中的`GlobalConifg`物体脚本处配置API密钥及其他信息
-4. 启动游戏！
+3. 下载本地配置语音生成工程与模型（可选）：[GPT-SoVITS](https://)（下载好直接运行主目录的 `start_tts_api.bat` 文件即可）
+4. 在Unity中打开项目
+5. 在场景中的 `GlobalConifg` 物体脚本处配置API密钥及其他信息
+6. 启动游戏！
 
-### 最后
+## ⚠️ 注意事项
+
+1. 本地tts可能生成速度较慢，如需更改API调用请到 `Assets/Script/Agent API/TTSAPI.cs` 处更改相关逻辑
+
+## 最后
 
 作为开发狗也想趁着学生时代的尾声蹭一蹭AI的热潮，为自己的OC赋予一个不太完美的灵魂，如果能帮助你或者能为你的项目做一些参考就再好不过了。
 
