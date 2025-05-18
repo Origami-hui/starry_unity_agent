@@ -31,7 +31,7 @@ public class TTSAPI : MonoBehaviour
         {
             TerminateBatProcess();
         }
-    }*/
+    }
 
     private void ExecuteBatFile()
     {
@@ -92,7 +92,7 @@ public class TTSAPI : MonoBehaviour
                 Debug.LogError($"终止失败: {e.Message}");
             }
         }
-    }
+    }*/
 
     public IEnumerator SendTTSRequest(string input)
     {
@@ -100,7 +100,9 @@ public class TTSAPI : MonoBehaviour
         {
             yield break;
         }
+        //简单的处理文本，移除一些不用生成语音的说明性文字
         string txt = WashTTSText(input);
+
         // 构造JSON请求体（根据服务端参数要求调整字段名）
         var requestBody = new
         {
@@ -130,10 +132,6 @@ public class TTSAPI : MonoBehaviour
                     audioSource.clip = clip;
                     audioSource.Play();
                     Debug.Log("语音播放成功，ttsText: " + txt);
-                }
-                else
-                {
-                    Debug.LogError("无法解析OGG音频数据");
                 }
 
                 HistoryManager.AddDialogue(GlobalConfig.instance.roleName, txt, clip);
@@ -169,16 +167,5 @@ public class TTSAPI : MonoBehaviour
         // 全局替换匹配到的括号及内部内容为空字符串
         return Regex.Replace(text, pattern, string.Empty);
     }
-
-    // 可选：编辑器测试按钮
-#if UNITY_EDITOR
-    [UnityEditor.MenuItem("Tools/Test Close Bat Window")]
-    private static void TestClose()
-    {
-        TTSAPI manager = FindObjectOfType<TTSAPI>();
-        Debug.Log(manager);
-        manager?.TerminateBatProcess();
-    }
-#endif
 
 }

@@ -50,6 +50,7 @@ git clone https://github.com/Origami-hui/starry_unity_agent.git
 ## ⚠️ 注意事项
 
 1. 本地tts可能生成速度较慢，如需更改API调用请到 `Assets/Script/Agent API/TTSAPI.cs` 处更改相关逻辑
+2. 如果在Unity编辑器中`Game`窗口无法正常显示UI，请调整窗口尺寸分辨率（推荐QHD 2560*1440）
 
 ## 最后
 

@@ -10,6 +10,8 @@ public class GlobalConfig : MonoBehaviour
 {
     public static GlobalConfig instance;
 
+    [HideInInspector]
+    [SerializeField]
     public List<Message> messagesList; //存储对话信息
 
     public readonly string roleName = "星莹";
@@ -65,7 +67,7 @@ public class GlobalConfig : MonoBehaviour
 
     [Header("对话管理配置")]
     [Tooltip("历史对话保存文件名，路径为Application.persistentDataPath")]
-    public readonly string HISTORY_CHAT_DATA_URL = "starry_chat_history.txt";
+    public readonly string historyChatDataFileName = "starry_chat_history.txt";
 
     private void Awake()
     {

@@ -65,6 +65,7 @@ public class LLMAPI : MonoBehaviour
         }
     }
 
+    //可调用基于Ollama框架的本地LLM模型
     public async Task<string> GetLocalAIResponse(string userMessage)
     {
         try
@@ -92,7 +93,6 @@ public class LLMAPI : MonoBehaviour
             {
                 if (string.IsNullOrWhiteSpace(line)) continue;
 
-                // 逐行解析JSON
                 var lineData = JsonConvert.DeserializeObject<OllamaResponse>(line);
                 Debug.Log(lineData);
                 if (lineData.message != null)

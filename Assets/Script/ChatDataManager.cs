@@ -13,9 +13,9 @@ public class ChatDataManager : MonoBehaviour
     public List<Message> LoadHistoryChat()
     {
         List<Message> messages = null;
-        if (SaveSystem.FileExists(GlobalConfig.instance.HISTORY_CHAT_DATA_URL))
+        if (SaveSystem.FileExists(GlobalConfig.instance.historyChatDataFileName))
         {
-            messages = SaveSystem.DeserializeObjectFromJson<List<Message>>(GlobalConfig.instance.HISTORY_CHAT_DATA_URL);
+            messages = SaveSystem.DeserializeObjectFromJson<List<Message>>(GlobalConfig.instance.historyChatDataFileName);
         }
 
         if (messages == null || messages.Count == 0)
@@ -24,7 +24,7 @@ public class ChatDataManager : MonoBehaviour
             {
                 new Message { role = "user", content = GlobalConfig.instance.setUp }
             };
-            SaveSystem.SavePersistentDataByJson(GlobalConfig.instance.HISTORY_CHAT_DATA_URL, messages);
+            SaveSystem.SavePersistentDataByJson(GlobalConfig.instance.historyChatDataFileName, messages);
         }
 
         return messages;
@@ -32,7 +32,7 @@ public class ChatDataManager : MonoBehaviour
 
     public void SaveHistoryChat()
     {
-        SaveSystem.SavePersistentDataByJson(GlobalConfig.instance.HISTORY_CHAT_DATA_URL, GlobalConfig.instance.messagesList);
+        SaveSystem.SavePersistentDataByJson(GlobalConfig.instance.historyChatDataFileName, GlobalConfig.instance.messagesList);
     }
 
     public void CleanHistoryChat()
@@ -42,10 +42,10 @@ public class ChatDataManager : MonoBehaviour
             new Message { role = "user", content = GlobalConfig.instance.setUp }
         };
 
-        if (SaveSystem.FileExists(GlobalConfig.instance.HISTORY_CHAT_DATA_URL))
+        if (SaveSystem.FileExists(GlobalConfig.instance.historyChatDataFileName))
         {
             
-            SaveSystem.SavePersistentDataByJson(GlobalConfig.instance.HISTORY_CHAT_DATA_URL, messages);
+            SaveSystem.SavePersistentDataByJson(GlobalConfig.instance.historyChatDataFileName, messages);
         }
 
         GlobalConfig.instance.messagesList = messages;

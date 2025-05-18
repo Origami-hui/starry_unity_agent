@@ -14,12 +14,12 @@ public class MenuUIManager : MonoBehaviour
         dialogManager = GetComponent<DialogManager>();
     }
 
-    public void showHistory()
+    public void ShowHistory()
     {
         historyManager.OpenHistoryPlane();
     }
 
-    public void retry()
+    public void Retry()
     {
         dialogManager.RetrySendMessage();
     }

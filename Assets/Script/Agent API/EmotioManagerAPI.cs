@@ -45,9 +45,7 @@ public class EmotioManagerAPI : MonoBehaviour
         Debug.Log($"最终情绪：{emotion}, emoIndex: {emoIndex}");
     }
 
-    /// <summary>
-    /// 主流程：异步获取Token并分析情感
-    /// </summary>
+    //获取Token并分析情感
     private async Task<int> AnalyzeSentimentAsync(string text)
     {
         try
@@ -83,9 +81,7 @@ public class EmotioManagerAPI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 异步获取百度AI Access Token
-    /// </summary>
+    //获取百度AI Access Token
     private async Task<string> GetAccessTokenAsync()
     {
         var url = "https://aip.baidubce.com/oauth/2.0/token";
@@ -107,9 +103,7 @@ public class EmotioManagerAPI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 异步发送情感分析请求
-    /// </summary>
+    //异步发送情感分析请求
     private async Task<string> SendSentimentRequestAsync(string _text)
     {
         var url = $"https://aip.baidubce.com/rpc/2.0/nlp/v1/sentiment_classify?charset=UTF-8&access_token={accessToken}";
@@ -125,9 +119,6 @@ public class EmotioManagerAPI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 百度情感分析响应模型（根据API文档定义）
-    /// </summary>
     [Serializable]
     private class BaiduSentimentResponse
     {
@@ -148,6 +139,5 @@ public class EmotioManagerAPI : MonoBehaviour
     {
         public string access_token;
         public int expires_in;
-        // 其他字段根据百度API返回结果添加
     }
 }

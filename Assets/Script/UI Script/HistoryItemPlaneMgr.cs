@@ -17,9 +17,7 @@ public class HistoryItemPlaneMgr : MonoBehaviour
         RefreshHistory(); // 页面显示时刷新内容
     }
 
-    /// <summary>
-    /// 刷新历史对话列表
-    /// </summary>
+    // 刷新历史对话列表
     public void RefreshHistory()
     {
         // 清空旧条目
@@ -29,7 +27,6 @@ public class HistoryItemPlaneMgr : MonoBehaviour
             //TestSet(child.gameObject);
         }
 
-        //Debug.Log("dialogueHistory: " + JsonConvert.SerializeObject(HistoryManager.dialogueHistory));
         // 动态生成新条目
         foreach (DialogueData data in HistoryManager.dialogueHistory)
         {
@@ -43,9 +40,7 @@ public class HistoryItemPlaneMgr : MonoBehaviour
         historyScrollView.verticalNormalizedPosition = 0;
     }
 
-    /// <summary>
-    /// 设置条目内容（头像、文本、时间）
-    /// </summary>
+    // 设置条目内容
     private void SetItemContent(GameObject item, DialogueData data)
     {
         // 获取子组件（根据预制体结构调整路径）
