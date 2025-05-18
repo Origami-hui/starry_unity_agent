@@ -23,14 +23,20 @@ public class GlobalConfig : MonoBehaviour
     [Tooltip("模型选择，具体key与url请打开代码设置")]
     public ModelEnum modelEnum;
 
+    //对话大模型配置，可以配置多个模型进行切换
+    [SerializeField]
     public List<ApiInfo> LLMApiInfoList = new List<ApiInfo>
     {
-        new ApiInfo { apiKey = "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",
+        new ApiInfo { apiKey = "",
             apiUrl = "https://openrouter.ai/api/v1/chat/completions",
             modelName = "deepseek/deepseek-r1:free" },
-        new ApiInfo { apiKey = "sk-snmepepjmyvoajxbdxbwfgzlnqqcaysawibsomjvtrddzlpn",
+        new ApiInfo { apiKey = "",
             apiUrl = "https://api.siliconflow.cn/v1/chat/completions",
-            modelName = "deepseek-ai/DeepSeek-V3" }
+            modelName = "deepseek-ai/DeepSeek-V3" },
+        //本地模型，添加模型时请确保本地模型处于最后一位！
+        new ApiInfo {
+            apiUrl = "http://localhost:11434/api/chat",
+            modelName = "deepseek-r1:7b" }
     };
 
     [Header("情绪识别模型配置（百度）")]
@@ -38,9 +44,11 @@ public class GlobalConfig : MonoBehaviour
     public bool emoAnalaysisEnabled = true;
 
     [DisableIf("emoAnalaysisEnabled", false)]
-    public string emoApiKey = "YAx5yQVSwJXaW8wbFgOvrFkz";
+    [Password]
+    public string emoApiKey = "";
     [DisableIf("emoAnalaysisEnabled", false)]
-    public string emoSercetKey = "SGb1ASyTXuP1iiJeqNyYuOlvBSX3LmWZ";
+    [Password]
+    public string emoSercetKey = "";
 
     [Header("语音生成模型配置（GPT-SoVITS）")]
     [Tooltip("是否启用语音生成")]
@@ -52,7 +60,8 @@ public class GlobalConfig : MonoBehaviour
 
     [Tooltip("本地GPT-SoVITS工程根目录")]
     [DisableIf("textToSoundEnabled", false)]
-    public string ttsMainFilePath = "E:\\projects\\ai_voice\\GPT-SoVITS-v2-240821\\GPT-SoVITS-v2-240821";
+    [Password]
+    public string ttsMainFilePath = "";
 
     [Header("对话管理配置")]
     [Tooltip("历史对话保存文件名，路径为Application.persistentDataPath")]
@@ -71,11 +80,12 @@ public class GlobalConfig : MonoBehaviour
     }
 }
 
-
+[Serializable]
 public class ApiInfo
 {
-    public string apiKey;
     public string apiUrl;
+    [Password]
+    public string apiKey;
     public string modelName;
 }
 
@@ -106,6 +116,8 @@ public class OllamaResponse
     public Message message;
     public bool done;
 }
+
+public class PasswordAttribute : PropertyAttribute { }
 
 [Serializable]
 public enum ModelEnum

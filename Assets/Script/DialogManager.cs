@@ -8,7 +8,7 @@ public class DialogManager : MonoBehaviour
     public TMP_Text responseText;
     public TMP_InputField inputField;
     public LLMAPI llmAPI;
-    public SoVITSAPI soVITSAPI;
+    public TTSAPI soVITSAPI;
     public EmotioManagerAPI emotioManagerAPI;
     public StarryController starryController;
 

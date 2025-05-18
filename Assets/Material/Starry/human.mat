@@ -599,7 +599,7 @@ Material:
     - _Offset2: 0
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
-    - _Offset_Z: 1.12
+    - _Offset_Z: 0.91
     - _Outline: 1
     - _OutlineColorMode: 0
     - _OutlineCullMode: 1
@@ -612,7 +612,7 @@ Material:
     - _OutlineZOffset: 0.0001
     - _OutlineZOffsetMaskRemapEnd: 1
     - _OutlineZOffsetMaskRemapStart: 0
-    - _Outline_Width: 3.93
+    - _Outline_Width: 3.63
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5

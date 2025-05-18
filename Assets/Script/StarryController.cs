@@ -6,6 +6,7 @@ using static StarryController;
 public class StarryController : MonoBehaviour
 {
     public StarryState starryState;
+    public AudioSource audioSource;
 
     public enum StarryState
     {
@@ -227,6 +228,14 @@ public class StarryController : MonoBehaviour
                 starryState = StarryState.Toughing;
                 starryAnimationController.PlayAction("Tough");
                 starryAnimationController.PlayAction("Tough", 2);
+
+                // 加载音频（无需后缀名）
+                AudioClip clip = Resources.Load<AudioClip>("tough_voice" + Random.Range(1, 3));
+                if (clip != null)
+                {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                }
             }
         }
     }

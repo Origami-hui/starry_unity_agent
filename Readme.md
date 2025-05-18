@@ -10,7 +10,7 @@
 ### 1. 智能文本生成
 - 接入大型语言模型实现上下文感知对话
 - 支持自定义角色人格设定
-- 指定文本生成模型
+- 指定文本生成模型，支持API及本地离线模型接入
 
 ### 2. 情绪识别分析（可选功能）
 - 实现文本情绪三分类（积极/消极/中性）
@@ -42,7 +42,7 @@ git clone https://github.com/Origami-hui/starry_unity_agent.git
 2. 申请API密钥：
     - 对话大模型：[Open Router](https://openrouter.ai/)/[Silicon Flow](https://cloud.siliconflow.cn/)
     - 情绪识别（可选）：[Baidu Cloud](https://console.bce.baidu.com/ai-engine/nlp/resource?_=1747500787133&apiId=32)
-3. 下载本地配置语音生成工程与模型（可选）：[GPT-SoVITS](https://)（下载好直接运行主目录的 `start_tts_api.bat` 文件即可）
+3. 下载本地配置语音生成工程与模型（可选）：[GPT-SoVITS](https://pan.baidu.com/s/1Ue0URTMda_seoQuLaPvPGA?pwd=ptqm)（下载好直接运行主目录的 `start_tts_api.bat` 文件即可）
 4. 在Unity中打开项目
 5. 在场景中的 `GlobalConifg` 物体脚本处配置API密钥及其他信息
 6. 启动游戏！

@@ -10,7 +10,7 @@ using static Unity.VisualScripting.Member;
 using System.Text.RegularExpressions;
 using UnityEngine.Windows;
 
-public class SoVITSAPI : MonoBehaviour
+public class TTSAPI : MonoBehaviour
 {
     [Header("音频播放")]
     public AudioSource audioSource;
@@ -163,9 +163,8 @@ public class SoVITSAPI : MonoBehaviour
         // 正则匹配所有括号对（圆括号、方括号、花括号）及其内部内容
         // 模式说明：
         // \( [^)]* \)  匹配圆括号内的内容（非嵌套）
-        // \[ [^\]]* \]  匹配方括号内的内容
-        // \{ [^\}]* \}  匹配花括号内的内容
-        string pattern = @"(（[^）]*）|\([^)]*\))";
+        // \*.*?(\*|$) 匹配两个星号内的内容
+        string pattern = @"\*.*?\*|\(.*?\)|\（.*?\）";
 
         // 全局替换匹配到的括号及内部内容为空字符串
         return Regex.Replace(text, pattern, string.Empty);
@@ -176,7 +175,7 @@ public class SoVITSAPI : MonoBehaviour
     [UnityEditor.MenuItem("Tools/Test Close Bat Window")]
     private static void TestClose()
     {
-        SoVITSAPI manager = FindObjectOfType<SoVITSAPI>();
+        TTSAPI manager = FindObjectOfType<TTSAPI>();
         Debug.Log(manager);
         manager?.TerminateBatProcess();
     }

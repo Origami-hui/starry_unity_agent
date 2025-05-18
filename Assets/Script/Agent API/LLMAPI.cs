@@ -72,14 +72,14 @@ public class LLMAPI : MonoBehaviour
             GlobalConfig.instance.messagesList.Add(new Message { role = "user", content = userMessage });
             var requestData = new
             {
-                model = "deepseek-r1:7b",
+                model = GlobalConfig.instance.LLMApiInfoList[-1].modelName,
                 messages = GlobalConfig.instance.messagesList
             };
 
             var json = JsonConvert.SerializeObject(requestData);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await httpClient.PostAsync("http://localhost:11434/api/chat", content);
+            var response = await httpClient.PostAsync(GlobalConfig.instance.LLMApiInfoList[-1].apiUrl, content);
             response.EnsureSuccessStatusCode();
 
             var responseJson = await response.Content.ReadAsStringAsync();
