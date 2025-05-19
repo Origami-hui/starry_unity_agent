@@ -3376,20 +3376,20 @@ MonoBehaviour:
   modelEnum: 1
   LLMApiInfoList:
   - apiUrl: https://openrouter.ai/api/v1/chat/completions
-    apiKey: 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
+    apiKey: 
     modelName: deepseek/deepseek-r1:free
   - apiUrl: https://api.siliconflow.cn/v1/chat/completions
-    apiKey: sk-snmepepjmyvoajxbdxbwfgzlnqqcaysawibsomjvtrddzlpn
+    apiKey: 
     modelName: deepseek-ai/DeepSeek-V3
   - apiUrl: http://localhost:11434/api/chat
     apiKey: 
     modelName: deepseek-r1:7b
   emoAnalaysisEnabled: 1
-  emoApiKey: YAx5yQVSwJXaW8wbFgOvrFkz
-  emoSercetKey: SGb1ASyTXuP1iiJeqNyYuOlvBSX3LmWZ
+  emoApiKey: 
+  emoSercetKey: 
   textToSoundEnabled: 1
   serviceUrl: http://localhost:9880
-  ttsMainFilePath: E:\projects\ai_voice\GPT-SoVITS-v2-240821\GPT-SoVITS-v2-240821
+  ttsMainFilePath: 
 --- !u!4 &770388665
 Transform:
   m_ObjectHideFlags: 0

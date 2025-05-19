@@ -33,7 +33,7 @@ public class DialogManager : MonoBehaviour
 
     void OnEndEdit(string text)
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
             SendMyMessage(inputField.text.Trim());
         }
